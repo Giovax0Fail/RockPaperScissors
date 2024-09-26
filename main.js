@@ -30,44 +30,45 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice)
-        { 
+    if (humanChoice === computerChoice) {
         window.alert("Draw!");
-        machineScore++;
-        humanScore++;
         window.alert(`Computer Choice: ${computerChoice}`);
-        window.alert(`Computer Score: ${machineScore}`);
-        window.alert(`Human Score: ${humanScore}`);
         window.alert(`Human Choice: ${humanChoice}`);
-    } else if(
-        (humanChoice === "rock" && computerChoice === "scissors") || //conditions where humans win
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
-    ){
+    ) {
         window.alert("You win!");
         humanScore++;
         window.alert(`Computer Choice: ${computerChoice}`);
         window.alert(`Computer Score: ${machineScore}`);
         window.alert(`Human Score: ${humanScore}`);
         window.alert(`Human Choice: ${humanChoice}`);
-        
-    }else if(
-        (humanChoice === "rock" && computerChoice === "paper") || // conditions where computer wins
-        (humanChoice === "paper" && computerChoice === "scissors") ||
-        (humanChoice === "scissors" && computerChoice === "rock")
-    ){
+    } else {
         window.alert("You lose!");
         machineScore++;
         window.alert(`Computer Choice: ${computerChoice}`);
         window.alert(`Computer Score: ${machineScore}`);
         window.alert(`Human Score: ${humanScore}`);
         window.alert(`Human Choice: ${humanChoice}`);
-
     }
 }
 
+function howManyRounds() {
+    var round_string = prompt("How many rounds you wanna play?", "");
+    const round_num = parseInt(round_string);
+    return round_num;
+}
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function callFunctionXTimes(playRound, x) {
+    for (let i = 0; i < x; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+}
 
-playRound(humanSelection, computerSelection);
+const round_num = howManyRounds();
+callFunctionXTimes(playRound, round_num);
+
