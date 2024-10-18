@@ -33,6 +33,7 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) 
         window.alert("Draw!");
     } 
+    
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
