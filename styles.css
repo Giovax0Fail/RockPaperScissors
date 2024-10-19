@@ -1,0 +1,112 @@
+body {
+    background: linear-gradient(135deg, #e03e31, #f6a600, #f6eb61, #2cba6d, #005cbf, #5c3dba, #a4007a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn {
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.2s;
+}
+
+.btn-rock {
+    background-color: #e03e31; /* Rosso */
+    color: white;
+}
+
+.btn-paper {
+    background-color: #f6a600; /* Arancione */
+    color: white;
+}
+
+.btn-scissors {
+    background-color: #f6eb61; /* Giallo */
+    color: black;
+}
+
+@media (min-width: 576px) {
+    .btn {
+        width: auto;
+    }
+}
+
+h1, h4 {
+    font-size: 1.5rem;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #e03e31; }
+    14% { color: #f6a600; }
+    28% { color: #f6eb61; }
+    42% { color: #2cba6d; }
+    57% { color: #005cbf; }
+    71% { color: #5c3dba; }
+    85% { color: #a4007a; }
+    100% { color: #e03e31; }
+}
+
+.rainbow-text {
+    animation: rainbow 3s linear infinite;
+}
+
+.btn:active {
+    transform: scale(2.2); /* Ingrossa il pulsante quando viene premuto */
+}
+
+/* Stili del footer */
+.footer {
+
+    background: linear-gradient(180deg, rgba(128, 128, 128, 0.7), rgba(200, 200, 200, 0.7));
+    color: white;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Colonna per mobile */
+    align-items: center; /* Centra il contenuto */
+}
+
+.footer-text {
+    margin: 5px 0; /* Spaziatura verticale */
+    text-align: center; /* Centra il testo */
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Centra l'icona verticalmente */
+    font-weight: bold; /* Testo in grassetto */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Sottolinea al passaggio del mouse */
+}
+
+.footer-icon {
+    width: 20px; /* Dimensione dell'icona */
+    height: 20px; /* Dimensione dell'icona */
+    margin-right: 5px; /* Spaziatura tra icona e testo */
+}
+
+/* Media query per desktop */
+@media (min-width: 576px) {
+    .footer-content {
+        flex-direction: row; /* Ritorna a riga su schermi più grandi */
+        justify-content: space-evenly; /* Spaziatura uniforme */
+        width: 100%; /* Larghezza del footer */
+    }
+}

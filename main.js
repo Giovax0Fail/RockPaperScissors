@@ -7,68 +7,37 @@ function getComputerChoice() {
 }
 
 function NumberToString(number) {
-    let ComChoice = "";
     switch (number) {
-        case 1:
-            ComChoice = "rock";
-            break;
-        case 2:
-            ComChoice = "paper";
-            break;
-        case 3:
-            ComChoice = "scissors";
-            break;
+        case 1: return "roccia";    // Modifica da "sasso" a "roccia"
+        case 2: return "carta";
+        case 3: return "forbici";
     }
-    return ComChoice;
 }
 
-function getHumanChoice() {
-    let userValue = String(
-        window.prompt("Choose between 'Rock', 'Paper', 'Scissors' ", "")
-    ).toLowerCase();
-    return userValue;
-}
+function play(humanChoice) {
+    const computerChoice = getComputerChoice();
+    let resultMessage = "";
 
-function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        window.alert("Draw!");
-        window.alert(`Computer Choice: ${computerChoice}`);
-        window.alert(`Human Choice: ${humanChoice}`);
+        resultMessage = "Pareggio!";
     } else if (
-        (humanChoice === "rock" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper")
+        (humanChoice === "roccia" && computerChoice === "forbici") ||
+        (humanChoice === "carta" && computerChoice === "roccia") ||
+        (humanChoice === "forbici" && computerChoice === "carta")
     ) {
-        window.alert("You win!");
+        resultMessage = "Hai vinto!";
         humanScore++;
-        window.alert(`Computer Choice: ${computerChoice}`);
-        window.alert(`Computer Score: ${machineScore}`);
-        window.alert(`Human Score: ${humanScore}`);
-        window.alert(`Human Choice: ${humanChoice}`);
     } else {
-        window.alert("You lose!");
+        resultMessage = "Hai perso!";
         machineScore++;
-        window.alert(`Computer Choice: ${computerChoice}`);
-        window.alert(`Computer Score: ${machineScore}`);
-        window.alert(`Human Score: ${humanScore}`);
-        window.alert(`Human Choice: ${humanChoice}`);
     }
+
+    document.getElementById('resultMessage').innerText = `${resultMessage} Scelta Computer: ${computerChoice}, Scelta Giocatore: ${humanChoice}`;
+    document.getElementById('humanScore').innerText = `Punteggio Giocatore: ${humanScore}`;
+    document.getElementById('machineScore').innerText = `Punteggio Computer: ${machineScore}`;
 }
 
-function howManyRounds() {
-    var round_string = prompt("How many rounds you wanna play?", "");
-    const round_num = parseInt(round_string);
-    return round_num;
-}
-
-function callFunctionXTimes(playRound, x) {
-    for (let i = 0; i < x; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-}
-
-const round_num = howManyRounds();
-callFunctionXTimes(playRound, round_num);
-
+// Aggiungi gli event listener ai pulsanti
+document.getElementById('rockBtn').addEventListener('click', () => play('roccia'));
+document.getElementById('paperBtn').addEventListener('click', () => play('carta'));
+document.getElementById('scissorsBtn').addEventListener('click', () => play('forbici')); // Corretto "sasso" in "forbici"
