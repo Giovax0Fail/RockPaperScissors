@@ -5,6 +5,14 @@ body {
     color: white;
 }
 
+.container {
+    background-color: rgba(211, 211, 211, 0.404); /* Grigio trasparente */
+    border-radius: 20px; /* Bordo smussato */
+    padding: 20px; /* Spaziatura interna */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.377); /* Ombra leggera */
+}
+
+
 @keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -108,5 +116,9 @@ h1, h4 {
         flex-direction: row; /* Ritorna a riga su schermi più grandi */
         justify-content: space-evenly; /* Spaziatura uniforme */
         width: 100%; /* Larghezza del footer */
+    }
+    .container{
+        padding: 15px; /* Spaziatura interna ridotta */
+        border-radius: 15px; /* Bordo smussato leggermente ridotto */
     }
 }
